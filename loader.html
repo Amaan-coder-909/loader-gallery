@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Loaders Gallery</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #2d2b2b;
+      min-height: 100vh;
+      padding: 2rem;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    /* Container for all loaders */
+    .loader-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    /* Card for each loader */
+    .loader-card {
+      background-color: #3a3a3a;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 240px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .loader-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Loader 1 - Dotted Circle */
+    .loader-1 {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      border: 10px dotted #25ced1;
+      border-top: 10px dotted #ff8a5b;
+      border-bottom: 10px dotted #ff8a5b;
+      animation: l1 1.5s linear infinite;
+    }
+
+    @keyframes l1 {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Loader 2 - Solid Circle */
+    .loader-2 {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      border: 15px solid #fceade;
+      border-top: 15px solid #ea526f;
+      border-bottom: 15px solid #ea526f;
+      animation: l1 2s ease-in-out infinite;
+    }
+
+    /* Loader 3 - spinner loader */
+    .loader-3 {
+
+      width: 40px;
+      height: 40px;
+      border: 5px solid #ccc;
+      border-top-color: #B1CC74;
+      border-radius: 50%;
+      animation: l1 1s linear infinite;
+    }
+
+    /* Loader 4 - dots loader */
+    .dots span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      background: #B1CC74;
+      border-radius: 50%;
+      animation: l4 0.6s infinite alternate;
+    }
+
+    .dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes l4 {
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Loader 5 - hexagon loader */
+    .hexagon-loader {
+      width: 120px;
+      height: 104px;
+      background: linear-gradient(135deg, #25ced1, #ff8a5b);
+      clip-path: polygon(50% 0%,
+          93% 25%,
+          93% 75%,
+          50% 100%,
+          7% 75%,
+          7% 25%);
+      animation: rotateHex 2s linear infinite, l5 1.5s ease-in-out infinite alternate;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Loader 6 - hexagon loader */
+    .hexagon-loader-6 {
+      width: 120px;
+      height: 104px;
+      background: linear-gradient(45deg, #8fff5b, #ea526f, #25ced1);
+
+      clip-path: polygon(50% 0%,
+          93% 25%,
+          93% 75%,
+          50% 100%,
+          7% 75%,
+          7% 25%);
+      animation: rotateHex 2s linear infinite, l5 1.5s ease-in-out infinite alternate;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes rotateHex {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes l5 {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.15);
+      }
+    }
+
+    /* Loader 7 - svg loader */
+    .svg-loader {
+      width: 60px;
+      height: 60px;
+      animation: rotate 2s linear infinite;
+    }
+
+    .svg-loader circle {
+      fill: none;
+      stroke: #25ced1;
+      stroke-width: 6;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 60;
+      stroke-linecap: round;
+      animation: dash 1.5s ease-in-out infinite;
+    }
+
+    @keyframes dash {
+      0% {
+        stroke-dashoffset: 100;
+      }
+
+      50% {
+        stroke-dashoffset: 25;
+        transform: rotate(45deg);
+      }
+
+      100% {
+        stroke-dashoffset: 100;
+        transform: rotate(360deg);
+      }
+    }
+
+    /* loader 8 */
+    .loader8 {
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+
+    .corea {
+      width: 20px;
+      height: 20px;
+      background: #00f0ff;
+      border-radius: 50%;
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      box-shadow: 0 0 15px #00f0ff;
+      animation: l8 2s infinite;
+    }
+
+    .orbita {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 1px dashed rgba(0, 240, 255, 0.3);
+      animation: L8 4s linear infinite;
+    }
+
+    .orbit-1 {
+      transform: scale(1.3);
+      animation-duration: 6s;
+    }
+
+    .orbit-2 {
+      transform: scale(1.6);
+      animation-duration: 9s;
+    }
+
+    .orbit-3 {
+      transform: scale(2);
+      animation-duration: 12s;
+    }
+
+    @keyframes L8 {
+      from {
+        transform: rotate(0deg) scale(var(--scale));
+      }
+
+      to {
+        transform: rotate(360deg) scale(var(--scale));
+      }
+    }
+
+    @keyframes l8 {
+
+      0%,
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px #00f0ff;
+      }
+
+      50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 25px #00f0ff;
+      }
+    }
+
+    /* loader 9 */
+    .loader9 {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      transform-style: preserve-3d;
+      animation: rotateCube 3s linear infinite;
+    }
+
+    .face {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #38f9d7, #43e97b);
+      opacity: 0.8;
+      box-shadow: 0 0 15px #38f9d7, 0 0 30px #43e97b;
+      border-radius: 12px;
+      transform: rotateY(0deg) translateZ(50px);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .face:nth-child(2) {
+      transform: rotateY(90deg) translateZ(50px);
+    }
+
+    .face:nth-child(3) {
+      transform: rotateX(90deg) translateZ(50px);
+    }
+
+    .face:nth-child(4) {
+      transform: rotateX(-90deg) translateZ(50px);
+    }
+
+    .face:nth-child(5) {
+      transform: rotateY(-90deg) translateZ(50px);
+    }
+
+    .face:nth-child(6) {
+      transform: rotateY(180deg) translateZ(50px);
+    }
+
+    @keyframes rotateCube {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+
+      100% {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px #38f9d7, 0 0 20px #43e97b;
+      }
+
+      100% {
+        box-shadow: 0 0 30px #38f9d7, 0 0 60px #43e97b;
+      }
+    }
+
+    /* loader 10 */
+    .loader10 {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+
+    .core-10 {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(circle, #4df0ff, #00a8ff);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px #4df0ff, 0 0 40px #00a8ff;
+      animation: pulse-10 2s infinite ease-in-out;
+      z-index: 10;
+    }
+
+    .orbit-10 {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(77, 240, 255, 0.2);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+    }
+
+    .orbit-10:nth-child(2) {
+      transform: rotate(30deg);
+    }
+
+    .orbit-10:nth-child(3) {
+      transform: rotate(60deg);
+    }
+
+    .particle-10 {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #4df0ff;
+      border-radius: 50%;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px #4df0ff;
+    }
+
+    .particle-10:nth-child(4) {
+      animation: orbit-10 3s linear infinite;
+    }
+
+    .particle-10:nth-child(5) {
+      animation: orbit-10 3.5s linear infinite;
+      animation-delay: 0.5s;
+    }
+
+    .particle-10:nth-child(6) {
+      animation: orbit-10 4s linear infinite;
+      animation-delay: 1s;
+    }
+
+    .particle-10:nth-child(7) {
+      animation: orbit-10 3.2s linear infinite reverse;
+    }
+
+    .particle-10:nth-child(8) {
+      animation: orbit-10 3.7s linear infinite reverse;
+      animation-delay: 0.7s;
+    }
+
+    .particle-10:nth-child(9) {
+      animation: orbit-10 4.2s linear infinite reverse;
+      animation-delay: 1.2s;
+    }
+
+    .floating-stars-10 {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .star-10 {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle-10 4s infinite ease-in-out;
+    }
+
+    .star-10:nth-child(1) {
+      width: 2px;
+      height: 2px;
+      top: 20%;
+      left: 30%;
+      animation-delay: 0.5s;
+    }
+
+    .star-10:nth-child(2) {
+      width: 3px;
+      height: 3px;
+      top: 60%;
+      left: 10%;
+      animation-delay: 1s;
+    }
+
+    .star-10:nth-child(3) {
+      width: 1px;
+      height: 1px;
+      top: 80%;
+      left: 70%;
+      animation-delay: 1.5s;
+    }
+
+    .star-10:nth-child(4) {
+      width: 2px;
+      height: 2px;
+      top: 30%;
+      left: 80%;
+      animation-delay: 2s;
+    }
+
+    .star-10:nth-child(5) {
+      width: 1px;
+      height: 1px;
+      top: 50%;
+      left: 50%;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes pulse-10 {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 20px #4df0ff, 0 0 40px #00a8ff;
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 30px #4df0ff, 0 0 60px #00a8ff;
+      }
+    }
+
+    @keyframes orbit-10 {
+      0% {
+        transform: translateX(-50%) rotate(0deg) translateY(75px) rotate(0deg);
+      }
+
+      100% {
+        transform: translateX(-50%) rotate(360deg) translateY(75px) rotate(-360deg);
+      }
+    }
+
+    @keyframes twinkle-10 {
+
+      0%,
+      100% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scale(1);
+      }
+    }
+
+    .loading-text {
+      position: absolute;
+      bottom: -40px;
+      width: 100%;
+      text-align: center;
+      color: #4df0ff;
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: textGlow 2s infinite alternate;
+    }
+
+    @keyframes textGlow {
+      0% {
+        opacity: 0.6;
+        text-shadow: 0 0 5px #4df0ff;
+      }
+
+      100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #4df0ff, 0 0 20px #00a8ff;
+      }
+    }
+
+    /* loader 11 */
+    .loader-container {
+      perspective: 1000px;
+      /* For potential 3D effects if you want to expand later */
+    }
+
+    .cosmic-bloom-loader {
+      position: relative;
+      width: 150px;
+      /* Overall size of the loader */
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .petal {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #8c42f5, #e056fd);
+      /* Vibrant gradient */
+      opacity: 0;
+      /* Start hidden */
+      animation: cosmicBloom 2.5s infinite ease-in-out;
+      /* Main animation */
+    }
+
+    /* Individual petal sizing and animation delays */
+    .petal-1 {
+      width: 40px;
+      height: 40px;
+      animation-delay: 0s;
+    }
+
+    .petal-2 {
+      width: 60px;
+      height: 60px;
+      animation-delay: 0.2s;
+      background: linear-gradient(45deg, #f5428c, #fd56e0);
+      /* Different gradient */
+    }
+
+    .petal-3 {
+      width: 80px;
+      height: 80px;
+      animation-delay: 0.4s;
+      background: linear-gradient(45deg, #42f58c, #56fde0);
+      /* Different gradient */
+    }
+
+    .petal-4 {
+      width: 100px;
+      height: 100px;
+      animation-delay: 0.6s;
+      background: linear-gradient(45deg, #f58c42, #fde056);
+      /* Different gradient */
+    }
+
+    .petal-5 {
+      width: 120px;
+      height: 120px;
+      animation-delay: 0.8s;
+      background: linear-gradient(45deg, #428cf5, #56e0fd);
+      /* Different gradient */
+    }
+
+    /* Keyframe Animation */
+    @keyframes cosmicBloom {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      30% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      70% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.5);
+        /* Slightly larger than original size */
+        opacity: 0;
+      }
+    }
+
+    /* loader 12 */
+    .loader-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .morphing-star {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #6e7ff3, #f35e7f, #ffd86a, #6ef3b6);
+      background-size: 200% 200%;
+      animation: morphStar 2.5s infinite cubic-bezier(0.77, 0, 0.175, 1),
+        colorShift 3s infinite alternate;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%,
+          79% 91%, 50% 70%, 21% 91%, 32% 57%,
+          2% 35%, 39% 35%);
+      box-shadow: 0 0 40px 10px #f35e7f55, 0 0 0 0 #ffd86a55;
+      transition: box-shadow 0.3s;
+      position: relative;
+    }
+
+    @keyframes morphStar {
+
+      0%,
+      100% {
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%,
+            79% 91%, 50% 70%, 21% 91%, 32% 57%,
+            2% 35%, 39% 35%);
+        box-shadow: 0 0 40px 10px #f35e7f55, 0 0 0 0 #ffd86a55;
+        transform: scale(1) rotate(0deg);
+      }
+
+      20% {
+        clip-path: polygon(50% 5%, 62% 38%, 95% 38%, 70% 60%,
+            80% 87%, 50% 72%, 20% 87%, 30% 60%,
+            5% 38%, 38% 38%);
+        box-shadow: 0 0 50px 15px #ffd86a77, 0 0 0 0 #f35e7f55;
+        transform: scale(1.08) rotate(18deg);
+      }
+
+      40% {
+        clip-path: circle(50% at 50% 50%);
+        box-shadow: 0 0 30px 5px #6ef3b6aa, 0 0 0 0 #6e7ff355;
+        transform: scale(0.96) rotate(36deg);
+      }
+
+      60% {
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%,
+            79% 91%, 50% 70%, 21% 91%, 32% 57%,
+            2% 35%, 39% 35%);
+        box-shadow: 0 0 60px 20px #6e7ff399, 0 0 0 0 #ffd86a55;
+        transform: scale(1.1) rotate(54deg);
+      }
+
+      80% {
+        clip-path: polygon(50% 10%, 65% 40%, 90% 40%, 70% 60%,
+            80% 90%, 50% 75%, 20% 90%, 30% 60%,
+            10% 40%, 35% 40%);
+        box-shadow: 0 0 40px 10px #f35e7f55, 0 0 0 0 #ffd86a55;
+        transform: scale(1.04) rotate(72deg);
+      }
+    }
+
+    @keyframes colorShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    /* laoder 13 */
+    .loader13 {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      perspective: 1000px;
+    }
+
+    .prism2 {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      animation: rotatePrism 4s linear infinite;
+    }
+
+    .face2 {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: rgba(255, 50, 100, 0.2);
+      border: 2px solid #ff3264;
+      box-shadow: 0 0 15px rgba(255, 50, 100, 0.5);
+      transition: transform 0.3s ease, opacity 0.5s ease;
+      opacity: 0.7;
+    }
+
+    .face2:nth-child(1) {
+      transform: rotateY(0deg) translateZ(60px);
+    }
+
+    .face2:nth-child(2) {
+      transform: rotateY(90deg) translateZ(60px);
+    }
+
+    .face2:nth-child(3) {
+      transform: rotateY(180deg) translateZ(60px);
+    }
+
+    .face2:nth-child(4) {
+      transform: rotateY(270deg) translateZ(60px);
+    }
+
+    .particle2 {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #00ffcc;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      animation: orbit 2s linear infinite;
+    }
+
+    .particle2:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .particle2:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .particle2:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .particle2:nth-child(4) {
+      animation-delay: 1.5s;
+    }
+
+    @keyframes rotatePrism {
+      0% {
+        transform: rotateY(0deg) rotateX(0deg);
+      }
+
+      100% {
+        transform: rotateY(360deg) rotateX(360deg);
+      }
+    }
+
+    @keyframes orbit {
+      0% {
+        transform: translateX(60px) rotate(0deg) translateZ(0);
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+
+      100% {
+        transform: translateX(60px) rotate(360deg) translateZ(0);
+        opacity: 1;
+      }
+    }
+
+    .loader13:hover .face2 {
+      opacity: 1;
+      border-color: #00ffcc;
+      box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
+    }
+
+    .core2 {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ffffff;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 30px #ff3264, 0 0 60px #00ffcc;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.3);
+      }
+    }
+
+    /* loader 14 */
+     .loader14 {
+      height: 250px;
+      width: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shape {
+      height: 150px;
+      width: 150px;
+      background-color: red;
+      animation: 10s shape infinite ease-in-out backwards 1s, 1s l14-jump infinite ease-in-out 1s;
+      clip-path: none; /* For clip-path reset */
+    }
+
+    @keyframes shape {
+      0% {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        border-radius: 20px;
+        border: none;
+        clip-path: none;
+      }
+      10%, 20%, 30% {
+        background-color: yellow;
+        border-radius: 50%;
+        border: none;
+        clip-path: none;
+      }
+      40%, 50% {
+        height: 75px;
+        width: 150px;
+        background-color: green;
+        border-radius: 0;
+        border: none;
+        clip-path: none;
+      }
+      60% {
+        height: 0;
+        width: 0;
+        background-color: transparent;
+        border: none;
+        clip-path: none;
+      }
+       70%, 80%, 90% {
+        height: 150px;
+        width: 150px;
+        background-color: gold;
+        border: none;
+        border-radius: 0;
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+      }
+      /* 100% {
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        border-radius: 0;
+        border: none;
+        clip-path: none;
+      } */
+    }
+
+    @keyframes l14-jump {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-2rem); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 style="text-align: center; margin-bottom: 2rem;">CSS Loader Gallery</h1>
+
+  <div class="loader-gallery">
+    <div class="loader-card">
+      <div class="loader-1"></div>
+    </div>
+    <div class="loader-card">
+      <div class="loader-2"></div>
+    </div>
+
+    <!-- Add more loader cards here -->
+    <div class="loader-card">
+      <div class="loader-3"></div>
+    </div>
+
+    <div class="loader-card">
+      <div class="dots">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="loader-card">
+      <div class="hexagon-loader"></div>
+    </div>
+    <div class="loader-card">
+      <div class="hexagon-loader-6"></div>
+    </div>
+    <div class="loader-card">
+      <svg class="svg-loader" viewBox="0 0 50 50">
+        <circle cx="25" cy="25" r="20" />
+      </svg>
+    </div>
+    <div class="loader-card">
+      <div class="loader8">
+        <div class="corea"></div>
+        <div class="orbita orbit-1"></div>
+        <div class="orbita orbit-2"></div>
+        <div class="orbita orbit-3"></div>
+      </div>
+    </div>
+    <div class="loader-card">
+      <div class="loader9">
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+        <div class="face"></div>
+      </div>
+    </div>
+
+    <div class="loader-card">
+      <div class="loader10">
+        <div class="core-10"></div>
+        <div class="orbit-10"></div>
+        <div class="orbit-10"></div>
+        <div class="orbit-10"></div>
+
+        <div class="particle-10"></div>
+        <div class="particle-10"></div>
+        <div class="particle-10"></div>
+        <div class="particle-10"></div>
+        <div class="particle-10"></div>
+        <div class="particle-10"></div>
+
+        <div class="floating-stars-10">
+          <div class="star-10"></div>
+          <div class="star-10"></div>
+          <div class="star-10"></div>
+          <div class="star-10"></div>
+          <div class="star-10"></div>
+        </div>
+
+        <div class="loading-text">Cosmic Connection</div>
+      </div>
+    </div>
+
+    <div class="loader-card">
+      <div class="loader-container">
+        <div class="cosmic-bloom-loader">
+          <div class="petal petal-1"></div>
+          <div class="petal petal-2"></div>
+          <div class="petal petal-3"></div>
+          <div class="petal petal-4"></div>
+          <div class="petal petal-5"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loader-card">
+      <div class="loader-container">
+        <div class="morphing-star"></div>
+      </div>
+    </div>
+
+    <div class="loader-card">
+      <div class="loader13">
+        <div class="prism2">
+          <div class="face2"></div>
+          <div class="face2"></div>
+          <div class="face2"></div>
+          <div class="face2"></div>
+        </div>
+        <div class="particle2"></div>
+        <div class="particle2"></div>
+        <div class="particle2"></div>
+        <div class="particle2"></div>
+        <div class="core2"></div>
+      </div>
+    </div>
+
+    <div class="loader-card">
+      <div class="loader14">
+        <div class="shape"></div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</body>
+
+</html>
